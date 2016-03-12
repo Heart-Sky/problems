@@ -15,4 +15,15 @@ memory_limit = 128M（最大使用内存的大小）；
 upload_max_filesize = 2M（上传附件的最大值），
 以上根据实际需要修改
 
-暂时写到这，使用过程中有新发现再来完善 = =
+<del>暂时写到这，使用过程中有新发现再来完善 = =<\del>
+
+### 0x04
+修改www目录，后来想了下，放在软件目录里不太保险，万一哪天手贱把软件卸了，忘记网页文件还在里面。
+    
+打开scripts->config.inc.php,把`$wwwDir =$c_installDir.'/www';`改成自己想要的目录,我是直接改成了`$wwwDir = 'E:/code/website/';`(后来的时候出了问题，不知道和删了$c_installDir.有没有关系= =)，有一点要注意，windows下表示路径的\要改为/
+    
+还没完，再打开httpd.conf，相应改为`DocumentRoot "your_path"`和`<Directory "your_path">`
+
+按理说到现在就可以了，不知道为什么目录还是没更改，重启服务也不行，后来重启电脑结果莫名其妙的可以了
+    
+暂时告一段落，开始撸php ：)
